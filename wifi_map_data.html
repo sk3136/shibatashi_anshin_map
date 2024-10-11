@@ -54,13 +54,13 @@
                 var template = [];
                 for (var i = 0; i < free_WiFi_name.length; i++) {
                     if (i == free_WiFi_name.length - 1) {
-                        template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":'現在地',"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]});
+                        template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":'現在地',"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">現在地</div>"},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]});
                     } else {
                         for (var j = 0; j < nearby_list.length; j++) {
                             if (i == nearby_list[j]) {
-                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":free_WiFi_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]});
+                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":free_WiFi_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">" + free_WiFi_name[i] + "</div>"},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]});
                             } else {
-                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":free_WiFi_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]});
+                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":free_WiFi_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">" + free_WiFi_name[i] + "</div>"},"geometry":{"type":"Point","coordinates":[free_WiFi_lng[i],free_WiFi_lat[i]]}}]});
                             }
                         }
                     }
