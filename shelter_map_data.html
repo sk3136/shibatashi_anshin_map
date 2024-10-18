@@ -24,7 +24,7 @@
 
         function Init(lat_now, lng_now) {
             var vURL      = "https://maps.gsi.go.jp";
-            var vURL_Site = "/index_pm.html?postmessage=1#15/" + lat_now + "/" + lng_now + "/&base=std&ls=std&disp=1&vs=c1g1j0h0k0l0u0t0z0r0s0m0f1";
+            var vURL_Site = "/index_pm.html?postmessage=1#16/" + lat_now + "/" + lng_now + "/&base=std&ls=std&disp=1&vs=c1g1j0h0k0l0u0t0z0r0s0m0f1";
             oMap = document.createElement("iframe");
             oMap.style.display = "none";
 
@@ -54,13 +54,13 @@
                 var template = [];
                 for (var i = 0; i < shelter_name.length + 1; i++) {
                     if (i == shelter_name.length) {
-                        template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":'現在地',"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">現在地</div>"},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]});
+                        template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":'現在地',"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">現在地</div>"},"geometry":{"type":"Point","coordinates":[lng_now,lat_now]}}]});
                     } else {
                         for (var j = 0; j < nearby_list.length; j++) {
                             if (i == nearby_list[j]) {
-                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":shelter_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/082.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">" + shelter_name[i] + "</div>"},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]});
-                            } else {
                                 template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":shelter_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/080.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">" + shelter_name[i] + "</div>"},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]});
+                            } else {
+                                template.push({"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"name":shelter_name[i],"_markerType":"Icon","_iconUrl":"https://maps.gsi.go.jp/portal/sys/v4/symbols/081.png","_iconSize":[20,20],"_iconAnchor":[10,10]},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]}, {"fileName":"","visible":true,"features":[{"type":"Feature","properties":{"_markerType":"DivIcon","_html":"<div style=\"font-size:9.5pt;color:#000000;background-color:#ffffff;\">" + shelter_name[i] + "</div>"},"geometry":{"type":"Point","coordinates":[shelter_lng[i],shelter_lat[i]]}}]});
                             }
                         }
                     }
@@ -70,6 +70,13 @@
                 oContent.postMessage(ClientMode, vURL);
             };
 
+            // var list = ['緑のアイコンが現在地', '赤いアイコンが最寄りの避難所', '青いアイコンがその他の避難所'];
+            // for (var i = 0; i < 3; i++) {
+            //     var p = document.createElement('p');
+            //     var text = document.createTextNode(list[i]);
+            //     p.appendChild(text);
+            //     document.body.appendChild(p);
+            // }
             document.body.appendChild(oMap);
         };
 
@@ -93,6 +100,14 @@
         }
         window.onresize = EvtResize;
 </script>
+<style>
+p {
+    margin: 0px auto;
+    text-align: center;
+    font-size: 15px;
+}
+</style>
 </head>
-<body></body>
+<body>
+</body>
 </html>
